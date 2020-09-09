@@ -15,8 +15,12 @@ limitations under the License.
 */
 package utils
 
-// GoExecPath holds the go executable path
-var GoExecPath string
+import chartUtil "helm.sh/helm/v3/pkg/chartutil"
 
-// ConfigFileLocation basic config location
-var ConfigFileLocation = "https://raw.githubusercontent.com/gkarthiks/k8s-dumps/master/kgmod.yaml"
+// CreateHelmChart creates the helm chart on specified name
+func CreateHelmChart(appName string) {
+	_, err := chartUtil.Create(appName, GetCWD())
+	if err != nil {
+		Errorf("error while creating helm chart, %v", err)
+	}
+}

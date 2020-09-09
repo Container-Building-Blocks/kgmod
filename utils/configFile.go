@@ -15,8 +15,25 @@ limitations under the License.
 */
 package utils
 
-// GoExecPath holds the go executable path
-var GoExecPath string
+import (
+	"io"
+	"net/http"
+	"os"
+)
 
-// ConfigFileLocation basic config location
-var ConfigFileLocation = "https://raw.githubusercontent.com/gkarthiks/k8s-dumps/master/kgmod.yaml"
+// DownloadFile downloads the file from the specified URL and writes
+// it to the current working directory
+func DownloadFile(url string) error {
+	response, err := http.Get(url)
+	if err != nil {
+		Errorf("error occurred while pulling the config file from github: %v", err)
+	}
+	defer response.Body.Close()
+	out, err := os.Create(GetCWD() + "/.kgmod.yaml")
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+	_, err = io.Copy(out, response.Body)
+	return err
+}

@@ -1,4 +1,8 @@
 /*
+Package cmd holds the initialization command. This subcommand deals with the instantiation
+of the kgmod cli process
+*/
+/*
 Copyright © 2020 Karthikeyan Govindaraj <github.gkarthiks@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");

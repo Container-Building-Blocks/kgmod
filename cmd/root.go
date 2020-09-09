@@ -1,4 +1,8 @@
 /*
+Package cmd holds the root command. All other subcommands are bound to this root command
+to get executed with the kgmod lifecycle
+*/
+/*
 Copyright © 2020 Karthikeyan Govindaraj <github.gkarthiks@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");

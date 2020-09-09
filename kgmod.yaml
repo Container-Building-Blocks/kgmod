@@ -1,0 +1,7 @@
+modules:
+  - github.com/gkarthiks/k8s-discovery
+# replace:
+#   - github.com/sirupsen/logrus=/Users/gkarthiks/go/src/github.com/sirupsen/logrus
+#   - github.com/gkarthiks/k8s-discovery=/Users/gkarthiks/k8s-discovery
+docker: true
+chart-helm: true

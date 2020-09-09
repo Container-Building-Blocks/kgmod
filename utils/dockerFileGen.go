@@ -15,8 +15,23 @@ limitations under the License.
 */
 package utils
 
-// GoExecPath holds the go executable path
-var GoExecPath string
+import (
+	"github.com/sirupsen/logrus"
+	"kgmod/tmpl"
+	"os"
+)
 
-// ConfigFileLocation basic config location
-var ConfigFileLocation = "https://raw.githubusercontent.com/gkarthiks/k8s-dumps/master/kgmod.yaml"
+// CreateDockerfile creates the docker file based on the specified
+// go tmpl in the current directory
+func CreateDockerfile(pkgName string) {
+	dockerTmplDef := make(map[string]string)
+	dockerTmplDef["AppName"] = pkgName
+	dockerTmplDef["GoVersion"] = getGoVersion()
+	dockerTmplDef["AlpineVersion"] = "3.10"
+	out, err := os.Create(GetCWD() + "/Dockerfile")
+	if err != nil {
+		logrus.Error(err)
+	}
+	defer out.Close()
+	tmpl.Dockerfile_Tmpl.ExecuteTemplate(out, "dockerfile", dockerTmplDef)
+}

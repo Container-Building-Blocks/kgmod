@@ -15,8 +15,19 @@ limitations under the License.
 */
 package utils
 
-// GoExecPath holds the go executable path
-var GoExecPath string
+import (
+	"github.com/sirupsen/logrus"
+	"os"
+)
 
-// ConfigFileLocation basic config location
-var ConfigFileLocation = "https://raw.githubusercontent.com/gkarthiks/k8s-dumps/master/kgmod.yaml"
+// Errorf implements the errorf of logrus and exit(1)
+func Errorf(format string, args ...interface{}) {
+	logrus.Errorf(format, args)
+	os.Exit(1)
+}
+
+// Error implements the error of logrus and exit(1)
+func Error(args ...interface{}) {
+	logrus.Error(args...)
+	os.Exit(1)
+}

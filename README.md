@@ -1,3 +1,10 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/gkarthiks/kgmod)](https://goreportcard.com/report/github.com/gkarthiks/kgmod)
+![language](https://img.shields.io/badge/Language-go-blue.svg)
+![Release](https://img.shields.io/github/tag-date/Container-Building-Blocks/kgmod.svg?color=Orange&label=Latest%20Release)``
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+![GitHub](https://img.shields.io/github/license/container-building-blocks/kgmod)
+[![slack](https://img.shields.io/badge/chat%20on%20slack-kgmod%20channel-blueviolet)](https://container-bb.slack.com/archives/C01A9TLV04W)
+
 ![kgmod](kgmod.png)
 
 *kgmod* is a simple command line utility aimed to help improve the developer experience for creating [GoLang](https://golang.org/) services to deploy in [Kubernetes](https://kubernetes.io/) via the package manager [Helm](https://helm.sh).

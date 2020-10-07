@@ -1,7 +1,7 @@
 /*
 Package utils holds the utility files and methods for all the commands
 and subcommands og kgmod
- */
+*/
 /*
 Copyright © 2020 Karthikeyan Govindaraj <github.gkarthiks@gmail.com>
 
@@ -55,4 +55,17 @@ func getGoVersion() string {
 		return goVersionDocker.FindString(goCmplVer)
 	}
 	return ""
+}
+
+// GetPath returns the path for the requested command cli name
+func GetPath(commandBinary string) (path string) {
+	var err error
+	path, err = exec.LookPath(commandBinary)
+	if err != nil {
+		logrus.Fatalf("%s executable path cannot be determined, make sure helm is installed.", commandBinary)
+		os.Exit(1)
+	} else {
+		logrus.Debugf("Using the %s executable found in the path %s", commandBinary, path)
+	}
+	return
 }

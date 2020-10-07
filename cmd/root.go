@@ -21,12 +21,10 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"kgmod/utils"
 	"os"
-	"os/exec"
 )
 
 var (
@@ -56,16 +54,8 @@ func Execute() {
 }
 
 func init() {
-	var err error
-	utils.GoExecPath, err = exec.LookPath("go")
-	if err != nil {
-		logrus.Fatal("go executable path cannot be determined, make sure go is installed.")
-	} else {
-		logrus.Infof("Using the go executable found in the path %s", utils.GoExecPath)
-	}
-
+	utils.GoExecPath = utils.GetPath("go")
 	cobra.OnInitialize(initConfig)
-
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $PWD/.kgmod.yaml)")
 }
 

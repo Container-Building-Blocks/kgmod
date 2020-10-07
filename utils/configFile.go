@@ -1,7 +1,7 @@
 /*
 Package utils holds the utility files and methods for all the commands
 and subcommands og kgmod
- */
+*/
 /*
 Copyright © 2020 Karthikeyan Govindaraj <github.gkarthiks@gmail.com>
 

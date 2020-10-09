@@ -12,8 +12,11 @@ do
     if [ $GOOS = "windows" ]; then
         output_name+='.exe'
     fi
+
+    TAG=$(echo $GITHUB_REF | grep -o "[0-9][\.].*")
+    echo BuildVersion is: $TAG
     
-    env GOOS=$GOOS GOARCH=$GOARCH go build -v -o $output_name main.go
+    env GOOS=$GOOS GOARCH=$GOARCH go build -ldflags "-X main.BuildVersion=$TAG" -v -o $output_name main.go
 
     ls -larth
 

@@ -15,8 +15,15 @@ limitations under the License.
 */
 package main
 
-import "kgmod/cmd"
+import (
+	"kgmod/cmd"
+	"kgmod/utils"
+)
+
+// BuildVersion holds the version of the kgmod
+var BuildVersion = "development"
 
 func main() {
+	utils.BuildVersion = BuildVersion
 	cmd.Execute()
 }

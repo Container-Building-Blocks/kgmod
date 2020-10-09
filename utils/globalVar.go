@@ -20,7 +20,14 @@ limitations under the License.
 package utils
 
 // GoExecPath holds the go executable path
-var GoExecPath string
+var (
+	GoExecPath string
+	DockerPath string
+	HelmPath   string
+)
+
+// BuildVersion holds the version of the kgmod
+var BuildVersion = "development"
 
 // ConfigFileLocation basic config location
 var ConfigFileLocation = "https://raw.githubusercontent.com/gkarthiks/k8s-dumps/master/kgmod.yaml"
